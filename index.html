@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Nerkin</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="g">Simuliator ubeistva Nerkina</h1>
+        </header>
+        <main>
+            <img class='HH' id="gg" src="./photo_2022-08-30_12-12-33.jpg" alt="bgfbf" width="50" height="50">
+            <canvas id="ca" width="500" height="500"></canvas>
+            <script>
+                let canvas=document.getElementById("ca")
+                let v=document.getElementById("gg")
+                let ctx=canvas.getContext("2d")
+                ctx.strokeRect(0,0,500,500)
+                var Nerkin=function(){
+                    this.yy=60
+                    this.x=250
+                    this.y=100
+                }
+                Nerkin.prototype.draw=function(){
+                    ctx.fillRect(this.x+50,this.y+200,20,100)
+                    ctx.fillRect(this.x,this.y+200,20,100)
+                    ctx.fillRect(this.x,this.y+100,70,110)
+                    ctx.drawImage(v,this.x+260,this.y+150)
+                    ctx.fillText(String(this.ui),50,50,50)
+
+                    
+                }
+                Nerkin.prototype.die=function(){
+                    this.ui=Math.floor(Math.random()*50+3)
+                    if(this.ui===0){
+                        let uiu=true
+                        this.y+=this.yy
+                    }
+                }
+                let nerkin=new Nerkin()
+                nerkin.draw()
+            </script>
+        </main>
+        <footer></footer>
+    </body>
+</html>
